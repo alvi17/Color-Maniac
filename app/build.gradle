@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion 25
+    buildToolsVersion '25.0.0'
+    defaultConfig {
+        applicationId 'alvi17.colormaniac'
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName '1.0.0'
+        setProperty("archivesBaseName", "Color Maniac-$versionName")
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+
+    }
+    lintOptions {
+        disable "ResourceType"
+        checkReleaseBuilds false
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.google.android.gms:play-services-ads:10.+'
+}
